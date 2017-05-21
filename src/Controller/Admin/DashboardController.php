@@ -29,11 +29,34 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class DashboardController extends AppController
 {
-	public function initialize()
+    public function initialize()
     {
         parent::initialize();
 
-        $this->loadComponent('CakeDC/Users.UsersAuth');
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'prefix' => 'admin',
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'unauthorizedRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            //$this->referer() // If unauthorized, return them to page they were just on
+        ]);
+
+        // Allow the display action so our pages controller
+        // continues to work.
+        $this->Auth->allow(['display']);
     }
 	
     /**

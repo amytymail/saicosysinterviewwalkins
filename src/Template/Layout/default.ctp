@@ -56,6 +56,4 @@ $cakeDescription = 'Interview Walkins';
     <?= $this->fetch('content');?>
     <?= $this->element('footer');?>
     </body>
-
-    <!-- Mirrored from jobs.ondrejsvestka.cz/1-2/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 May 2017 09:06:35 GMT -->
 </html>
