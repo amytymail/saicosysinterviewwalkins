@@ -29,7 +29,13 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class DashboardController extends AppController
 {
+	public function initialize()
+    {
+        parent::initialize();
 
+        $this->loadComponent('CakeDC/Users.UsersAuth');
+    }
+	
     /**
      * Displays a view
      *

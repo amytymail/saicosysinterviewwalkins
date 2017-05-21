@@ -4,3 +4,11 @@ a.logo {
     text-align: center;
     width: 100%;
 }
+
+@media (min-width: 768px) {
+    a.logo {
+        padding-top: 45px;
+        text-align: center;
+        width: 100%;
+    }
+}

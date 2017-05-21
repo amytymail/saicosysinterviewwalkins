@@ -29,7 +29,12 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class UsersController extends AppController
 {
-
+	public function initialize() {
+		parent::initialize();
+		if ($this->request->action === 'login') {
+			$this->loadComponent('Recaptcha.Recaptcha');
+		}
+	}
     /**
      * Displays a view
      *

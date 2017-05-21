@@ -76,7 +76,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 Router::prefix('admin', function($routes) {
-    $routes->connect('/', ['controller' => 'Dashboard', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
     
 //    $routes->connect(
 //        '/:controller',
