@@ -37,7 +37,7 @@ class DashboardController extends AppController
             'authenticate' => [
                 'Form' => [
                     'fields' => [
-                        'username' => 'email',
+                        'username' => 'username',
                         'password' => 'password'
                     ]
                 ]
@@ -57,8 +57,8 @@ class DashboardController extends AppController
             ],
             'logoutRedirect' => [
 				'prefix' => 'admin',
-                'controller' => 'Dashboard',
-                'action' => 'index'
+                'controller' => 'Users',
+                'action' => 'login'
             ]
             //$this->referer() // If unauthorized, return them to page they were just on
         ]);

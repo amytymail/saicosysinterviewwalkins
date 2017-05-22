@@ -21,7 +21,7 @@
                     <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                     <hr>
 					<?= $this->Form->create($user); ?>
-					<?= $this->Form->control('email');?>
+					<?= $this->Form->control('username');?>
 					<?= $this->Form->control('password');?>
 					<?= $this->Form->button('<i class="fa fa-sign-in"></i> Log in', ['type' => 'submit', 'class' => 'btn btn-primary']) ?>
 					<?= $this->Form->end() ?>
