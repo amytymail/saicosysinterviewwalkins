@@ -48,17 +48,26 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->uuid('id')
+            ->integer('id')
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('username');
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmpty('email')
+            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-            ->allowEmpty('password');
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         $validator
-            ->allowEmpty('role');
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
+
+        $validator
+            ->requirePresence('role', 'create')
+            ->notEmpty('role');
 
         return $validator;
     }
@@ -72,25 +81,9 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
 
         return $rules;
-    }
-	
-	public function beforeSave(Event $event)
-    {
-        $entity = $event->getData('entity');
-
-        if ($entity->isNew()) {
-            $hasher = new DefaultPasswordHasher();
-
-            // Generate an API 'token'
-            $entity->api_key_plain = sha1(Text::uuid());
-
-            // Bcrypt the token so BasicAuthenticate can check
-            // it during login.
-            $entity->api_key = $hasher->hash($entity->api_key_plain);
-        }
-        return true;
     }
 }
