@@ -43,7 +43,6 @@ class DashboardController extends AppController
                 ]
             ],
             'loginAction' => [
-                'prefix' => 'admin',
                 'controller' => 'Users',
                 'action' => 'login'
             ],
@@ -51,6 +50,16 @@ class DashboardController extends AppController
                 'controller' => 'Users',
                 'action' => 'login'
             ],
+			'loginRedirect' => [
+				'prefix' => 'admin',
+                'controller' => 'Dashboard',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+				'prefix' => 'admin',
+                'controller' => 'Dashboard',
+                'action' => 'index'
+            ]
             //$this->referer() // If unauthorized, return them to page they were just on
         ]);
 

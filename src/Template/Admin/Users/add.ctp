@@ -7,10 +7,7 @@
         'radioWrapper'      => '<div class="radio">{{label}}</div>',
         'textarea'          => '<textarea name="{{name}}"{{attrs}}>{{value}}</textarea>',
         'submitContainer'   => '{{content}}'
-    ]);
-    
-    //$this->loadHelper('UnitTypes');
-    
+    ]);    
 ?>
 <section>
 	<div class="container">
@@ -27,6 +24,8 @@
 					<?= $this->Form->control('username');?>
 					<?= $this->Form->control('password');?>
 					<?= $this->Form->control('role');?>
+					<?= $this->Form->button(__('Submit')) ?>
+					<?= $this->Form->end() ?>
 					<div class="text-center">
 						<button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
 					</div>

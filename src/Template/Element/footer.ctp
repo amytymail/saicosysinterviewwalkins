@@ -5,10 +5,10 @@
             <div class="col-md-4 col-sm-6">
               <h4>Client zone</h4>
               <ul>
-                <li><a href="client-register.html">Login or Register</a></li>
-                <li><a href="client-dashboard.html">Dashboard</a></li>
-                <li><a href="client-applicants.html">Applicants</a></li>
-                <li><a href="client-job.html">Post a new job</a></li>
+				<li><?= $this->Html->link('Login or Register', ['prefix' => 'admin', 'controller' => 'Users', 'action' => 'login']);?></li>
+				<li><?= $this->Html->link('Dashboard', ['prefix' => 'admin', 'controller' => 'Dashboard', 'action' => 'index']);?></li>
+				<li><?= $this->Html->link('Applicants', ['prefix' => 'admin', 'controller' => 'Dashboard', 'action' => 'addPost']);?></li>
+				<li><?= $this->Html->link('Post a new job', ['prefix' => 'admin', 'controller' => 'Dashboard', 'action' => 'addPost']);?></li>
               </ul>
             </div>
             <div class="col-md-4 col-sm-6">
@@ -74,7 +74,7 @@
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='../../www.google-analytics.com/analytics.js';
+      e.src='https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>

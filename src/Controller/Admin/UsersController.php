@@ -49,10 +49,14 @@ class UsersController extends DashboardController {
 
 	public function index()
 	{
-        $this->set('users', $this->Users->find('all'));
+		$users = $this->paginate($this->Users);
+
+        $this->set(compact('users'));
+        $this->set('_serialize', ['users']);
     }
 	
     public function login() {
+		$user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -61,6 +65,7 @@ class UsersController extends DashboardController {
             }
             $this->Flash->error(__('Invalid username or password, try again'));
         }
+		$this->set(compact('user'));
     }
 	
 	/**

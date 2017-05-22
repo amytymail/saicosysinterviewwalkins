@@ -7,7 +7,7 @@ a.logo {
 
 @media (min-width: 768px) {
     a.logo {
-        padding-top: 45px;
+        padding-top: 35px;
         text-align: center;
         width: 100%;
     }
@@ -16,4 +16,8 @@ a.logo {
 .section {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.paginator {
+	text-align: center;
 }
